@@ -30,11 +30,7 @@ export default class OrthographyPageComponent {
     console.log({prompt});
   }
 
-  handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
-    console.log({prompt, file});
-  }
 
-  handleMessageWithSelect( event: TextMessageBoxEvent) {
-    console.log({event});
-  }
+
+
 }
