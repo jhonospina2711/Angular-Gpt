@@ -8,12 +8,12 @@ export const orthographyUseCase = async ( prompt: string ) => {
     const resp = await fetch(`${ environment.backendApi }/orthography-check`, {
       method: 'POST',
       headers: {
-        'content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({prompt})
     });
 
-    if (resp.ok) throw new Error('No se puedo realizar la correción');
+    if (!resp.ok) throw new Error('No se puedo realizar la correción');
 
     const data = await resp.json() as OrthographyResponse
 

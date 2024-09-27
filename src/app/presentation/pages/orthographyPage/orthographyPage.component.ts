@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxEvent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
+import { ChatMessageComponent, GptMessageOrthographyComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxEvent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
 import { Message } from '@interfaces/message.interfaces';
 import { OpenAiService } from '../../services/openai.service';
 
@@ -12,6 +12,7 @@ import { OpenAiService } from '../../services/openai.service';
     CommonModule,
     ChatMessageComponent,
     MyMessageComponent,
+    GptMessageOrthographyComponent,
     TypingLoaderComponent,
     TextMessageBoxComponent,
     TextMessageBoxFileComponent,
@@ -22,15 +23,32 @@ import { OpenAiService } from '../../services/openai.service';
 })
 export default class OrthographyPageComponent {
 
-  public messages = signal<Message[]>([ {text: 'Hola Mundo', isGpt: false }]);
+  public messages = signal<Message[]>([]);
   public isLoading = signal(false);
   public OpenAiService = inject( OpenAiService)
 
   handleMessage( prompt: string ) {
-    console.log({prompt});
+    this.isLoading.set(true);
+
+    this.messages.update( (prev) => [
+      ...prev,
+      {
+        isGpt: false,
+        text: prompt
+      }
+    ]);
+
+    this.OpenAiService.checkOrthography( prompt )
+      .subscribe( resp => {
+        this.isLoading.set(false);
+        this.messages.update( prev => [
+          ...prev,
+          {
+            isGpt: true,
+            text: resp.message,
+            info: resp,
+          }
+        ])
+      })
   }
-
-
-
-
 }
