@@ -27,6 +27,17 @@ export default class GetRequiarementsPageComponent {
   public OpenAiService = inject( OpenAiService)
 
    handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
+    this.isLoading.set(true);
+
+    // this.messages.update( (prev) => [
+    //   ...prev,
+    //   {
+    //     isGpt: false,
+    //     text: prompt
+    //   }
+    // ]);
+
+
     console.log({prompt, file});
   }
  }

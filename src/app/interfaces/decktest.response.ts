@@ -1,7 +1,7 @@
 
 
 export interface DeckTestResponse {
-    titulo: number;
+    titulo: string;
     descripcionCasoPrueba: string;
     preRequisitos: string;
     descripcionPasosPrueba: string;

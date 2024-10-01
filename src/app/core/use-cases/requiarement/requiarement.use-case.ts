@@ -19,13 +19,18 @@ export const requierementUseCase = async ( prompt: string ) => {
 
     const data = await resp.json() as RequierementResponse
 
+    return {
+      ok: true,
+      ...data,
+    }
+
   } catch (error) {
     console.log(error);
     return {
       ok: false,
       necesidadNro: 0,
       actividad: 'No se encontro información',
-      criteriosAceptacion: 'No se encontro información'
+      criteriosAceptacion: [],
     }
   }
 }

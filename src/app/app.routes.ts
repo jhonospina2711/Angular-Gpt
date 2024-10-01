@@ -13,7 +13,7 @@ export const routes: Routes = [
             './presentation/pages/getRequiarementsPage/getRequiarementsPage.component'
           ),
         data: {
-          icon: 'fa-solid fa-list',
+          icon: 'fa-solid fa-robot',
           title: 'Requerimientos',
           description: 'Obtener los Requerimientos',
         },
@@ -25,7 +25,7 @@ export const routes: Routes = [
             './presentation/pages/setDeckTestsPage/setDeckTestsPage.component'
           ),
         data: {
-          icon: 'fa-solid fa-list-check',
+          icon: 'fa-solid fa-hand-peace',
           title: 'Deck de Pruebas',
           description: 'Generar el Deck de Pruebas',
         },

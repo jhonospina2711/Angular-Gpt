@@ -19,6 +19,11 @@ export const deckTestUseCase = async ( prompt: string ) => {
 
     const data = await resp.json() as DeckTestResponse
 
+    return {
+      ok: true,
+      ...data,
+    }
+
   } catch (error) {
     console.log(error);
     return {
