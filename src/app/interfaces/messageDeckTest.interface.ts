@@ -4,7 +4,7 @@ export interface MessageDeckTest {
   text: string;
   isGpt: boolean;
   info?: {
-    titulo: number;
+    titulo: string;
     descripcionCasoPrueba: string;
     preRequisitos: string;
     descripcionPasosPrueba: string;

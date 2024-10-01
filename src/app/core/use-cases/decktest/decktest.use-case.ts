@@ -7,7 +7,7 @@ export const deckTestUseCase = async ( prompt: string ) => {
 
   try {
 
-    const resp = await fetch(`${ environment.backendApi }/deckTest`, {
+    const resp = await fetch(`${ environment.backendApi }/demotestingai`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
