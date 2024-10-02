@@ -1,7 +1,7 @@
 
 
 export interface RequierementResponse {
-  necesidadNro: number;
-  actividad: string;
-  criteriosAceptacion: string[];
+  Necesidad_Nro: number;
+  Actividad: string;
+  Criterios_de_Aceptacion: string[];
 }

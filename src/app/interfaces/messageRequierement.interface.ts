@@ -2,11 +2,11 @@
 
 
 export interface MessageRequierement {
-  text: string;
+  text?: string;
   isGpt: boolean;
   info?: {
-    necesidadNro: number;
-    actividad: string;
-    criteriosAceptacion: string[];
+    Necesidad_Nro: number;
+    Actividad: string;
+    Criterios_de_Aceptacion: string[];
   }
 }

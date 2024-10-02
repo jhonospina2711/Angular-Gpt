@@ -8,11 +8,13 @@
 
       @for (message of messages(); track $index) {
         @if( message.isGpt) {
-          <app-chat-message
-            [text]="message.text"
+          <app-gpt-message-get-requierement
+            [Necesidad_Nro]="message.info!.Necesidad_Nro"
+            [Actividad]="message.info!.Actividad"
+            [Criterios_de_Aceptacion]="message.info!.Criterios_de_Aceptacion"
           />
         } @else {
-          <app-my-message [text]="message.text"
+          <app-my-message [text]="message.text!"
           />
         }
      }
@@ -25,8 +27,8 @@
   </div>
 
    <!-- MessageBox -->
-   <app-text-message-box-file
+   <app-text-message-box
    placeholder="Escribe aquí lo que deseas"
-   (onMessage)="handleMessageWithFile($event)"
+   (onMessage)="handleMessage($event)"
    />
 </div>

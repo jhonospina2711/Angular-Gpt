@@ -7,7 +7,7 @@ export const requierementUseCase = async ( prompt: string ) => {
 
   try {
 
-    const resp = await fetch(`${ environment.backendApi }/demotestingai`, {
+    const resp = await fetch(`${ environment.backendApi }/requierement`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -28,9 +28,9 @@ export const requierementUseCase = async ( prompt: string ) => {
     console.log(error);
     return {
       ok: false,
-      necesidadNro: 0,
-      actividad: 'No se encontro información',
-      criteriosAceptacion: [],
+      Necesidad_Nro: 0,
+      Actividad: 'No se encontro información',
+      Criterios_de_Aceptacion: [],
     }
   }
 }

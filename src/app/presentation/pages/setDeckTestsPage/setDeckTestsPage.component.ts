@@ -37,17 +37,18 @@ export default class SetDeckTestsPageComponent {
       }
     ]);
 
-    // this.OpenAiService.checkDeckTest( prompt )
-    // .subscribe( resp => {
-    //   this.isLoading.set(false);
-    //   this.messages.update( prev => [
-    //     ...prev,
-    //     {
-    //       isGpt: true,
-    //       text: resp.message,
-    //       info: resp,
-    //     }
-    //   ])
-    // })
+    this.OpenAiService.checkDeckTest( prompt )
+    .subscribe( resp => {
+      console.log(resp);
+      // this.isLoading.set(false);
+      // this.messages.update( prev => [
+      //   ...prev,
+      //   {
+      //     isGpt: true,
+      //     text: resp.message,
+      //     info: resp,
+      //   }
+      // ])
+    })
  }
 }

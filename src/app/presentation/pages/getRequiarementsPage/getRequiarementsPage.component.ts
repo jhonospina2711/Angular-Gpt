@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { GptMessageGetRequierementComponent } from '@components/chat-bubbles/gptMessageGetRequierement/gptMessageGetRequierement.component';
 import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
 import { MessageRequierement } from '@interfaces/messageRequierement.interface';
 import { OpenAiService } from 'app/presentation/services/openai.service';
@@ -10,6 +11,7 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
   imports: [
     CommonModule,
     ChatMessageComponent,
+    GptMessageGetRequierementComponent,
     MyMessageComponent,
     TypingLoaderComponent,
     TextMessageBoxComponent,
@@ -26,18 +28,41 @@ export default class GetRequiarementsPageComponent {
   public isLoading = signal(false);
   public OpenAiService = inject( OpenAiService)
 
-   handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
+  //  handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
+  //   this.isLoading.set(true);
+
+  //   this.messages.update( (prev) => [
+  //     ...prev,
+  //     {
+  //       isGpt: false,
+  //       text: prompt
+  //     }
+  //   ]);
+  // console.log({prompt, file});
+
+  handleMessage( prompt: string ) {
     this.isLoading.set(true);
 
-    // this.messages.update( (prev) => [
-    //   ...prev,
-    //   {
-    //     isGpt: false,
-    //     text: prompt
-    //   }
-    // ]);
+    this.messages.update( (prev) => [
+      ...prev,
+      {
+        isGpt: false,
+        text: prompt
+      }
+    ]);
 
+    this.OpenAiService.checkRequierement( prompt )
+    .subscribe( resp => {
+      console.log(resp);
+      this.isLoading.set(false);
+      this.messages.update( prev => [
+        ...prev,
+        {
+          isGpt: true,
+          info: resp,
+        }
+      ])
+    })
 
-    console.log({prompt, file});
   }
  }

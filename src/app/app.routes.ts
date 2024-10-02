@@ -31,6 +31,18 @@ export const routes: Routes = [
         },
       },
       {
+        path: 'orthography',
+        loadComponent: () =>
+          import(
+            './presentation/pages/orthographyPage/orthographyPage.component'
+          ),
+        data: {
+          icon: 'fa-solid fa-spell-check',
+          title: 'Ortografía',
+          description: 'Corregir ortografía',
+        },
+      },
+      {
         path: '**',
         redirectTo: 'getrequiarements',
         pathMatch: 'full',

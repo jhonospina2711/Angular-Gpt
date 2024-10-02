@@ -40,6 +40,7 @@ export default class OrthographyPageComponent {
 
     this.OpenAiService.checkOrthography( prompt )
       .subscribe( resp => {
+        console.log(resp);
         this.isLoading.set(false);
         this.messages.update( prev => [
           ...prev,
