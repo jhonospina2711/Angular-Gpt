@@ -23,12 +23,18 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
 })
 export default class GetRequiarementsPageComponent {
 
-
   public messages = signal<MessageRequierement[]>([]);
   public isLoading = signal(false);
   public OpenAiService = inject( OpenAiService)
 
-  //  handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
+  async handleMessage( prompt: string ) {
+
+    await this.OpenAiService.checkRequierementStream( prompt );
+    
+
+  }
+
+  // handleMessage( prompt: string ) {
   //   this.isLoading.set(true);
 
   //   this.messages.update( (prev) => [
@@ -38,31 +44,18 @@ export default class GetRequiarementsPageComponent {
   //       text: prompt
   //     }
   //   ]);
-  // console.log({prompt, file});
 
-  handleMessage( prompt: string ) {
-    this.isLoading.set(true);
-
-    this.messages.update( (prev) => [
-      ...prev,
-      {
-        isGpt: false,
-        text: prompt
-      }
-    ]);
-
-    this.OpenAiService.checkRequierement( prompt )
-    .subscribe( resp => {
-      console.log(resp);
-      this.isLoading.set(false);
-      this.messages.update( prev => [
-        ...prev,
-        {
-          isGpt: true,
-          info: resp,
-        }
-      ])
-    })
-
-  }
+  //   this.OpenAiService.checkRequierement( prompt )
+  //   .subscribe( resp => {
+  //     console.log(resp);
+  //     this.isLoading.set(false);
+  //     this.messages.update( prev => [
+  //       ...prev,
+  //       {
+  //         isGpt: true,
+  //         info: resp,
+  //       }
+  //     ])
+  //   })
+  // }
  }
