@@ -6,7 +6,7 @@
       <app-chat-message text="Escribe la historia de usuario"
       />
 
-      @for (message of messages(); track $index) {
+      @for (message of messages(); track message.text) {
         @if( message.isGpt) {
           <app-gpt-message-get-requierement
             [Necesidad_Nro]="message.info!.Necesidad_Nro"

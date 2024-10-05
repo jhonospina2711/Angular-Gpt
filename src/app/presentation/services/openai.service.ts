@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { deckTestUseCase, orthographyUseCase, requiarementStreamUseCase, requierementUseCase } from '@use-cases/index';
+import { deckTestUseCase, orthographyUseCase, prosConsStreamUseCase, prosConsUseCase, requiarementStreamUseCase, requierementUseCase } from '@use-cases/index';
 import { from } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -13,12 +13,16 @@ export class OpenAiService {
     return from (requierementUseCase(prompt));
   }
 
-  checkRequierementStream( prompt: string ){
-    return from (requiarementStreamUseCase(prompt));
-  }
-
   checkDeckTest( prompt: string ){
     return from (deckTestUseCase(prompt));
+  }
+
+  prosConsDiscusser( prompt: string ) {
+    return from( prosConsUseCase(prompt) );
+  }
+
+  prosConsStreamDiscusser( prompt: string, abortSignal: AbortSignal ) {
+    return prosConsStreamUseCase(prompt, abortSignal );
   }
 
 }

@@ -2,7 +2,7 @@ import { RequierementResponse } from "@interfaces/requierement.response";
 import { environment } from "environments/environment.development";
 
 
-export const requiarementStreamUseCase = async( prompt: string ) => {
+export async function* requiarementStreamUseCase( prompt: string ) {
   try {
 
     const resp = await fetch(`${ environment.backendApi }/requierement`, {
@@ -32,12 +32,10 @@ export const requiarementStreamUseCase = async( prompt: string ) => {
       }
     const decodedChunk = decoder.decode( value, { stream: true });
     text += decodedChunk;
-    console.log(text);
+    yield text
     }
 
-    return null;
-
-
+    return text;
   } catch (error) {
     return null;
   }

@@ -25,37 +25,30 @@ export default class GetRequiarementsPageComponent {
 
   public messages = signal<MessageRequierement[]>([]);
   public isLoading = signal(false);
-  public OpenAiService = inject( OpenAiService)
+  public OpenAiService = inject(OpenAiService)
 
-  async handleMessage( prompt: string ) {
+    handleMessage( prompt: string ) {
+    this.isLoading.set(true);
 
-    await this.OpenAiService.checkRequierementStream( prompt );
-    
+    this.messages.update( (prev) => [
+      ...prev,
+      {
+        isGpt: false,
+        text: prompt
+      }
+    ]);
 
+    this.OpenAiService.checkRequierement( prompt )
+    .subscribe( resp => {
+      console.log(resp);
+      this.isLoading.set(false);
+      this.messages.update( prev => [
+        ...prev,
+        {
+          isGpt: true,
+          info: resp,
+        }
+      ])
+    })
   }
-
-  // handleMessage( prompt: string ) {
-  //   this.isLoading.set(true);
-
-  //   this.messages.update( (prev) => [
-  //     ...prev,
-  //     {
-  //       isGpt: false,
-  //       text: prompt
-  //     }
-  //   ]);
-
-  //   this.OpenAiService.checkRequierement( prompt )
-  //   .subscribe( resp => {
-  //     console.log(resp);
-  //     this.isLoading.set(false);
-  //     this.messages.update( prev => [
-  //       ...prev,
-  //       {
-  //         isGpt: true,
-  //         info: resp,
-  //       }
-  //     ])
-  //   })
-  // }
- }
+}

@@ -18,6 +18,7 @@ export const requierementUseCase = async ( prompt: string ) => {
     if (!resp.ok) throw new Error('No se logro obtener los requerimientos');
 
     const data = await resp.json() as RequierementResponse
+    console.log('Esta es la data:', data);
 
     return {
       ok: true,

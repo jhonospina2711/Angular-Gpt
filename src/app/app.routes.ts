@@ -31,15 +31,25 @@ export const routes: Routes = [
         },
       },
       {
-        path: 'orthography',
+        path: 'pros-cons',
+        loadComponent: () =>
+          import('./presentation/pages/prosConsPage/prosConsPage.component'),
+        data: {
+          icon: 'fa-solid fa-code-compare',
+          title: 'Pros & Cons',
+          description: 'Comparar pros y contras',
+        },
+      },
+      {
+        path: 'pros-cons-stream',
         loadComponent: () =>
           import(
-            './presentation/pages/orthographyPage/orthographyPage.component'
+            './presentation/pages/prosConsStreamPage/prosConsStream.component'
           ),
         data: {
-          icon: 'fa-solid fa-spell-check',
-          title: 'Ortografía',
-          description: 'Corregir ortografía',
+          icon: 'fa-solid fa-water',
+          title: 'Como stream',
+          description: 'Con stream de mensajes',
         },
       },
       {
