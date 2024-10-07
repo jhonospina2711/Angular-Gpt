@@ -1,1 +1,36 @@
-<p>gptMessageGetDeckTests works!</p>,
+<div class="col-start-1 col-end-9 p-3 rounded-lg">
+  <div class="flex flex-row items-start">
+    <div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-600 flex-shrink-0">
+      G
+    </div>
+    <div class="relative ml-3 text-sm bg-black bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl">
+      <h3 class="text-2xl">Necesidad_Nro: {{Necesidad_Nro}}</h3>
+
+      <ng-container *ngIf="Casos_de_Prueba.length > 0">
+        <h3 class="text-2xl">Casos de prueba encontrados:</h3>
+        <ul>
+
+          <li *ngFor="let prueba of Casos_de_Prueba">
+            <h4 class="font-bold">
+              <h3 class="text-2xl"><strong>Prueba No: {{ prueba.IdPrueba || 'Null' }}</strong></h3>
+              <h3 class="text-2xl"><strong>Id Criterio Aceptación: {{ prueba.IdCriterioAceptacion || 'Null'}}</strong></h3>
+            </h4> <!-- Verificamos que la propiedad no sea vacía -->
+            <p><strong>Título Prueba:</strong> {{ prueba.Titulo_prueba || 'Sin título' }}</p>
+            <p><strong>Descripción:</strong> {{ prueba.Descripcion_caso_prueba || 'Sin descripción' }}</p>
+            <p><strong>Pre-requisitos:</strong> {{ prueba.Prerrequisitos || 'No especificados' }}</p>
+            <p><strong>Pasos de prueba:</strong></p>
+            <ul>
+              <!-- Dividimos la cadena de pasos por saltos de línea y luego iteramos sobre el arreglo -->
+              <li *ngFor="let paso of prueba.Pasos_de_prueba.split('\n')">{{ paso }}</li>
+            </ul>
+            <p><strong>Resultado esperado:</strong> {{ prueba.Resultado_esperado || 'No especificado' }}</p>
+          </li>
+        </ul>
+      </ng-container>
+
+      <ng-container *ngIf="Casos_de_Prueba.length === 0">
+        <p>No se encontraron casos de prueba.</p>
+      </ng-container>
+    </div>
+  </div>
+</div>

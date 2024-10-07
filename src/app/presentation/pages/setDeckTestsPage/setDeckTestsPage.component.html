@@ -3,19 +3,23 @@
     <div class="grid gap-y-2">
 
       <!-- Chat Message -->
-      <app-chat-message text="Escribe la historia de usuario"
+      <app-chat-message text="Indica los criterios de aceptación"
       />
 
-      @for (message of messages(); track $index) {
-        @if( message.isGpt) {
-          <app-chat-message
-            [text]="message.text"
-          />
-        } @else {
-          <app-my-message [text]="message.text"
-          />
-        }
-     }
+      <!-- Ciclo para mostrar los mensajes -->
+      <ng-container *ngFor="let message of messages(); trackBy: trackByText">
+        <ng-container *ngIf="message.isGpt; else userMessage">
+          <!-- Mensajes de respuesta de GPT con información de Casos de Prueba -->
+          <app-gpt-message-get-deck-tests
+            [Necesidad_Nro]="message.info?.Necesidad_Nro ?? 0"
+            [Casos_de_Prueba]="message.info?.Casos_de_Prueba || []" 
+          ></app-gpt-message-get-deck-tests>
+        </ng-container>
+        <!-- Mensajes del usuario -->
+        <ng-template #userMessage>
+          <app-my-message [text]="message.text" />
+        </ng-template>
+      </ng-container>
 
 
       @if (isLoading()) {

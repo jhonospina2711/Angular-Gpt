@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { GptMessageGetDeckTestsComponent } from '@components/gptMessageGetDeckTests/gptMessageGetDeckTests.component';
 import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { MessageDeckTest } from '@interfaces/index';
 import { OpenAiService } from 'app/presentation/services/openai.service';
@@ -12,6 +13,7 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
     CommonModule,
     ChatMessageComponent,
     MyMessageComponent,
+    GptMessageGetDeckTestsComponent,
     TypingLoaderComponent,
     TextMessageBoxComponent,
     TextMessageBoxFileComponent,
@@ -39,22 +41,20 @@ export default class SetDeckTestsPageComponent {
 
     this.OpenAiService.checkDeckTest( prompt )
     .subscribe( resp => {
-      console.log(resp);
+      console.log('Respuesta de OpenAI:', resp);
       this.isLoading.set(false);
       this.messages.update( prev => [
         ...prev,
         {
           isGpt: true,
           text: 'Generando el set de pruebas: ',
-          info: {
-            titulo: resp.titulo,
-            descripcionCasoPrueba: resp.descripcionCasoPrueba,
-            preRequisitos: resp.preRequisitos,
-            descripcionPasosPrueba: resp.descripcionPasosPrueba,
-            resultado: resp.resultado
-          }
+          info: resp
         }
       ])
     })
  }
+
+ trackByText(index: number, message: any): string {
+  return message.text;
+  }
 }

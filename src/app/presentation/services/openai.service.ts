@@ -14,6 +14,8 @@ export class OpenAiService {
   }
 
   checkDeckTest( prompt: string ){
+    console.log('ESTO ES EL PROMPT ENVIADO: ',prompt);
+
     return from (deckTestUseCase(prompt));
   }
 
