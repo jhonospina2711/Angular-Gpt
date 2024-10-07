@@ -40,15 +40,21 @@ export default class SetDeckTestsPageComponent {
     this.OpenAiService.checkDeckTest( prompt )
     .subscribe( resp => {
       console.log(resp);
-      // this.isLoading.set(false);
-      // this.messages.update( prev => [
-      //   ...prev,
-      //   {
-      //     isGpt: true,
-      //     text: resp.message,
-      //     info: resp,
-      //   }
-      // ])
+      this.isLoading.set(false);
+      this.messages.update( prev => [
+        ...prev,
+        {
+          isGpt: true,
+          text: 'Generando el set de pruebas: ',
+          info: {
+            titulo: resp.titulo,
+            descripcionCasoPrueba: resp.descripcionCasoPrueba,
+            preRequisitos: resp.preRequisitos,
+            descripcionPasosPrueba: resp.descripcionPasosPrueba,
+            resultado: resp.resultado
+          }
+        }
+      ])
     })
  }
 }

@@ -1,8 +1,6 @@
 import { RequierementResponse } from "@interfaces/index";
 import { environment } from "environments/environment";
 
-
-
 export const requierementUseCase = async ( prompt: string ) => {
 
   try {
