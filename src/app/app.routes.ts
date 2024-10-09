@@ -31,28 +31,6 @@ export const routes: Routes = [
         },
       },
       {
-        path: 'pros-cons',
-        loadComponent: () =>
-          import('./presentation/pages/prosConsPage/prosConsPage.component'),
-        data: {
-          icon: 'fa-solid fa-code-compare',
-          title: 'Pros & Cons',
-          description: 'Comparar pros y contras',
-        },
-      },
-      {
-        path: 'pros-cons-stream',
-        loadComponent: () =>
-          import(
-            './presentation/pages/prosConsStreamPage/prosConsStream.component'
-          ),
-        data: {
-          icon: 'fa-solid fa-water',
-          title: 'Como stream',
-          description: 'Con stream de mensajes',
-        },
-      },
-      {
         path: '**',
         redirectTo: 'getrequiarements',
         pathMatch: 'full',
