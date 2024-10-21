@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardLayoutComponent } from './layouts/dashboardLayout/dashboardLayout.component';
+import { DashboardLayoutComponent } from '../../../../bpiapp/src/app/presentation/layouts/dashboardLayout/dashboardLayout.component';
+
 
 const routes: Routes = [
   {

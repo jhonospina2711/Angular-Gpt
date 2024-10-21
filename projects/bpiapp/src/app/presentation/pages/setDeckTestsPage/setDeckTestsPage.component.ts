@@ -17,7 +17,7 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
     TypingLoaderComponent,
     TextMessageBoxComponent,
     TextMessageBoxFileComponent,
-    TextMessageBoxSelectComponent,
+    TextMessageBoxSelectComponent
   ],
   templateUrl: './setDeckTestsPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
