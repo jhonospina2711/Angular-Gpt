@@ -18,12 +18,14 @@
       "@auth-services/*": ["projects/authapp/src/app/auth/services/*"],
       "@auth-layouts/*": ["projects/authapp/src/app/dashboard/layouts/*"],
       "@auth-pages/*": ["projects/authapp/src/app/dashboard/pages/*"],
+      "@auth-enviroments/*": ["projects/authapp/src/environments/*"],
 
       // Alias para `bpiapp`
       "@components/*": ["projects/bpiapp/src/app/presentation/components/*"],
       "@interfaces/*": ["projects/bpiapp/src/app/interfaces/*"],
       "@services/*": ["projects/bpiapp/src/app/presentation/services/*"],
       "@use-cases/*": ["projects/bpiapp/src/app/core/use-cases/*"],
+      "@enviroments/*": ["projects/bpiapp/src/environments/*"],
     }
   },
   "angularCompilerOptions": {

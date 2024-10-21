@@ -1,5 +1,10 @@
+
+import { environment } from "@enviroments/environment";
 import { DeckTestResponse, RequierementResponse } from "@interfaces/index";
-import { environment } from "environments/environment";
+
+
+
+
 
 export const deckTestUseCase = async ( prompt: string ) => {
 

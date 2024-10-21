@@ -1,13 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src",  // Cambia baseUrl para que apunte a la carpeta src de bpiapp
-    "outDir": "../../dist/out-tsc/app",  // Directorio de salida para la compilación
-    "paths": {
-      "@components/*": ["app/presentation/components/*"],
-      "@use-cases/*": ["app/core/use-cases/*"],
-      "@interfaces/*": ["app/interfaces/*"],
-    },
+    "outDir": "../../out-tsc/app",
     "types": []
   },
   "files": [
@@ -17,4 +11,3 @@
     "src/**/*.d.ts"
   ]
 }
-

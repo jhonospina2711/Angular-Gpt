@@ -1,5 +1,6 @@
+import { environment } from "@enviroments/environment";
 import type { OrthographyResponse } from "@interfaces/orthography.response";
-import { environment } from "environments/environment.development";
+
 
 
 export const orthographyUseCase = async ( prompt: string ) => {

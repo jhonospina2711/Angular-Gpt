@@ -1,4 +1,5 @@
-import { environment } from 'environments/environment';
+
+import { environment } from '@enviroments/environment';
 import type { ProsConsResponse } from '@interfaces/pros-cons.response';
 
 

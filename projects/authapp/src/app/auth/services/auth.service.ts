@@ -1,8 +1,9 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { enviroment } from '../../../environments/environments';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import { AuthStatus, LoginResponse, User } from '../interfaces';
+import { enviroment } from '@auth-enviroments/environments';
+
 
 @Injectable({
   providedIn: 'root'

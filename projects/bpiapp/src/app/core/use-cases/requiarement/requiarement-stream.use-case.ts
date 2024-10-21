@@ -1,5 +1,7 @@
+import { environment } from "@enviroments/environment";
 import { RequierementResponse } from "@interfaces/requierement.response";
-import { environment } from "environments/environment.development";
+
+
 
 
 export async function* requiarementStreamUseCase( prompt: string ) {

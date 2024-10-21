@@ -1,4 +1,5 @@
-import { environment } from 'environments/environment';
+import { environment } from "@enviroments/environment";
+
 
 
 export async function* prosConsStreamUseCase( prompt: string, abortSignal: AbortSignal ) {
