@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { GptMessageGetRequierementComponent } from '@components/chat-bubbles/gptMessageGetRequierement/gptMessageGetRequierement.component';
-import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
+
+import { ChatMessageComponent, GptMessageGetRequierementComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { MessageRequierement } from '@interfaces/messageRequierement.interface';
-import { OpenAiService } from 'app/presentation/services/openai.service';
+import { OpenAiService } from '../../services/openai.service';
 
 @Component({
   selector: 'app-get-requiarements-page',

@@ -1,13 +1,29 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.json",  // Extiende la configuración de la raíz
   "compilerOptions": {
-    "outDir": "../../out-tsc/app",
-    "types": []
+    "baseUrl": "./src",  // Define la base para resolver rutas relativas dentro de src
+    "outDir": "../../dist/out-tsc/authapp",  // Directorio de salida de los archivos compilados
+    "paths": {
+      "@components/*": ["app/auth/components/*"],  // Alias para los componentes de auth
+      "@guards/*": ["app/auth/guards/*"],  // Alias para los guards de auth
+      "@interfaces/*": ["app/auth/interfaces/*"],  // Alias para las interfaces de auth
+      "@services/*": ["app/auth/services/*"],  // Alias para los servicios de auth
+      "@layouts/*": ["app/dashboard/layouts/*"],  // Alias para los layouts del dashboard
+      "@pages/*": ["app/dashboard/pages/*"]  // Alias para las páginas del dashboard
+    },
+    "types": []  // No se incluyen tipos adicionales
   },
-  "files": [
-    "src/main.ts"
-  ],
   "include": [
-    "src/**/*.d.ts"
-  ]
+    "src/**/*.ts"  // Incluir todos los archivos TypeScript en src
+  ],
+  "exclude": [
+    "src/test.ts",  // Excluir archivos de pruebas
+    "src/**/*.spec.ts"  // Excluir archivos de pruebas unitarias
+  ],
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,  // Chequeo estricto de inyección de dependencias
+    "strictInputAccessModifiers": true,  // Chequeo estricto de modificadores de acceso en los inputs
+    "strictTemplates": true,  // Verificación estricta de plantillas
+    "enableI18nLegacyMessageIdFormat": false  // Desactivar el formato de i18n legado
+  }
 }

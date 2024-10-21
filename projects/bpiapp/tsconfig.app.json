@@ -7,7 +7,6 @@
       "@components/*": ["app/presentation/components/*"],
       "@use-cases/*": ["app/core/use-cases/*"],
       "@interfaces/*": ["app/interfaces/*"],
-      "app/*": ["app/*"]  // Rutas para resolver módulos dentro de bpiapp
     },
     "types": []
   },

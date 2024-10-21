@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { GptMessageGetDeckTestsComponent } from '@components/gptMessageGetDeckTests/gptMessageGetDeckTests.component';
 import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { MessageDeckTest } from '@interfaces/index';
-import { OpenAiService } from 'app/presentation/services/openai.service';
+import { OpenAiService } from '../../services/openai.service';
+import { CommonModule } from '@angular/common';
+import { GptMessageGetDeckTestsComponent } from '@components/gptMessageGetDeckTests/gptMessageGetDeckTests.component';
 
 
 @Component({

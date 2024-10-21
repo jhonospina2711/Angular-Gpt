@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",  // Extiende la configuración global de tsconfig
+  "compilerOptions": {
+    "baseUrl": "./src",  // Base para resolver rutas dentro de la carpeta src
+    "outDir": "../../dist/out-tsc/authapp",  // Directorio de salida específico para authapp
+    "paths": {
+      "@components/*": ["app/auth/components/*"],  // Alias para componentes de auth
+      "@guards/*": ["app/auth/guards/*"],  // Alias para guards
+      "@interfaces/*": ["app/auth/interfaces/*"],  // Alias para interfaces
+      "@services/*": ["app/auth/services/*"],  // Alias para servicios
+      "@layouts/*": ["app/dashboard/layouts/*"],  // Alias para layouts del dashboard
+      "@pages/*": ["app/dashboard/pages/*"]  // Alias para páginas del dashboard
+    },
+    "types": []
+  },
+  "files": [
+    "src/main.ts"  // Archivo de entrada principal
+  ],
+  "include": [
+    "src/**/*.d.ts"  // Incluir todos los archivos de declaración de tipo
+  ],
+  "exclude": [
+    "src/test.ts",  // Excluir archivos de pruebas
+    "src/**/*.spec.ts"  // Excluir archivos de pruebas unitarias
+  ]
+}
