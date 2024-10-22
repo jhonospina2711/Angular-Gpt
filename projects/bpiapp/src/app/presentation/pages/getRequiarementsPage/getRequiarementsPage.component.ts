@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 
 import { ChatMessageComponent, GptMessageGetRequierementComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { MessageRequierement } from '@interfaces/messageRequierement.interface';
-import { OpenAiService } from '../../services/openai.service';
+import { OpenAiService } from '@services/openai.service';
 
 @Component({
   selector: 'app-get-requiarements-page',

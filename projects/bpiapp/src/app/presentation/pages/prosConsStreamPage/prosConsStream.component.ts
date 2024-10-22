@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatMessageComponent, MyMessageComponent, TypingLoaderComponent, TextMessageBoxComponent } from '@components/index';
 import { Message } from '@interfaces/message.interfaces';
-import { OpenAiService } from 'app/presentation/services/openai.service';
+import { OpenAiService } from '@services/openai.service';
 
 @Component( {
   selector: 'app-pros-cons-stream-page',

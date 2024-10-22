@@ -2,9 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
-
-import { AuthService } from '../../services/auth.service';
-
+import { AuthService } from '@auth-services/auth.service';
 
 @Component({
   templateUrl: './login-page.component.html',

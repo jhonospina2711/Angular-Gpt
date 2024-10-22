@@ -2,7 +2,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { MessageDeckTest } from '@interfaces/index';
-import { OpenAiService } from '../../services/openai.service';
+import { OpenAiService } from '@services/openai.service';
 import { CommonModule } from '@angular/common';
 import { GptMessageGetDeckTestsComponent } from '@components/gptMessageGetDeckTests/gptMessageGetDeckTests.component';
 
