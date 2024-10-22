@@ -16,7 +16,7 @@
       "@auth-guards/*": ["projects/authapp/src/app/auth/guards/*"],
       "@auth-interfaces/*": ["projects/authapp/src/app/auth/interfaces/*"],
       "@auth-services/*": ["projects/authapp/src/app/auth/services/*"],
-      "@auth-layouts/*": ["projects/authapp/src/app/dashboard/layouts/*"],
+      "@auth-layouts/*": ["projects/authapp/src/app/dashboard/layouts/dashboard-layout/*"],
       "@auth-pages/*": ["projects/authapp/src/app/dashboard/pages/*"],
       "@auth-enviroments/*": ["projects/authapp/src/environments/*"],
 
@@ -26,6 +26,7 @@
       "@services/*": ["projects/bpiapp/src/app/presentation/services/*"],
       "@use-cases/*": ["projects/bpiapp/src/app/core/use-cases/*"],
       "@enviroments/*": ["projects/bpiapp/src/environments/*"],
+      "@layouts/*": ["projects/bpiapp/src/app/presentation/layouts/dashboardLayout/*"]
     }
   },
   "angularCompilerOptions": {
