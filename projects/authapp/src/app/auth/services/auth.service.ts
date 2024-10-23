@@ -38,16 +38,11 @@ export class AuthService {
 
     return this.http.post<LoginResponse>(url, body)
       .pipe(
-        map(({ user, token }) => {
-          const isAuthenticated = this.setAuthentication( user, token);
-          if (isAuthenticated) {
-            window.location.href = 'http://localhost:4200/';
-          }
-          return isAuthenticated;
-        }),
+        map(({ user, token }) => this.setAuthentication( user, token)),
 
         //! Aqui atrapamos el error de login
         catchError(err => throwError(() => err.error.message)
+
         )
       );
   }
@@ -56,7 +51,10 @@ export class AuthService {
     const url = `${this.baseUrl}/auth/check-token`;
     const token = localStorage.getItem('token');
 
-    if (!token) return of(false);
+    if (!token) {
+      this.logout();
+      return of(false);
+    }
 
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${token}`);
@@ -66,9 +64,15 @@ export class AuthService {
         map(({ user, token }) => this.setAuthentication( user, token)),
         //Error
         catchError(() => {
-          this._authStatus.set(AuthStatus.noptAuthenticated);
+          this._authStatus.set(AuthStatus.notAuthenticated);
           return of(false);
         })
       );
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this._currentUser.set(null);
+    this._authStatus.set( AuthStatus.notAuthenticated);
   }
 }

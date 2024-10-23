@@ -29,7 +29,7 @@ export class AppComponent {
         this.router.navigateByUrl('/dasboard');
         return;
 
-      case AuthStatus.noptAuthenticated:
+      case AuthStatus.notAuthenticated:
         this.router.navigateByUrl('/auth/login')
         return;
 
