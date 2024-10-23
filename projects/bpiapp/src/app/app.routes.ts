@@ -33,7 +33,7 @@ export const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'getrequiarements',
+        redirectTo: 'auth',
         pathMatch: 'full',
       },
     ],
