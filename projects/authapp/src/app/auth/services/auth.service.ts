@@ -38,11 +38,16 @@ export class AuthService {
 
     return this.http.post<LoginResponse>(url, body)
       .pipe(
-        map(({ user, token }) => this.setAuthentication( user, token)),
+        map(({ user, token }) => {
+          const isAuthenticated = this.setAuthentication( user, token);
+          if (isAuthenticated) {
+            window.location.href = 'http://localhost:4200/';
+          }
+          return isAuthenticated;
+        }),
 
         //! Aqui atrapamos el error de login
         catchError(err => throwError(() => err.error.message)
-
         )
       );
   }
