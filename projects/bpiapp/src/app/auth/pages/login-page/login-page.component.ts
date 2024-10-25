@@ -25,7 +25,7 @@ export class LoginPageComponent {
       const { email, password } = this.myForm.value;
       this.authService.login( email, password )
        .subscribe({
-        next: () => this.router.navigateByUrl('/getrequiarements'),
+        next: () => this.router.navigateByUrl('/bpiapp/getrequiarements'),
         error: ( message ) => {
           Swal.fire('Error', message, 'error')
         }

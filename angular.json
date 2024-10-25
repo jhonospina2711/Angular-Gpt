@@ -119,7 +119,8 @@
               "projects/bpiapp/src/assets"
             ],
             "styles": [
-              "projects/bpiapp/src/styles.css"
+              "projects/bpiapp/src/styles/styles.css",
+              "projects/bpiapp/src/styles/styles-auth.css"
             ],
             "scripts": []
           },

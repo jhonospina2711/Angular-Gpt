@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-
-import { ChatMessageComponent, GptMessageGetRequierementComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
+import { GptMessageGetRequierementComponent } from '@components/chat-bubbles/gptMessageGetRequierement/gptMessageGetRequierement.component';
+import { ChatMessageComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
 import { MessageRequierement } from '@interfaces/messageRequierement.interface';
 import { OpenAiService } from '@services/openai.service';
 

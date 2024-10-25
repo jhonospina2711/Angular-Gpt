@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SidebarMenuItemComponent } from '@components/sidebarMenuItem/sidebarMenuItem.component';
-import { routes } from '../../../app-routing.module';
-//import { routes } from '../../../app.routes';
+//import { routes } from '../../../app-routing.module';
+import { routes } from '../../../app.routes';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -18,5 +18,6 @@ import { routes } from '../../../app-routing.module';
 })
 export class DashboardLayoutComponent {
 
-  public routes = routes[0].children?.filter( (route) => route.data);
+  public routes = routes[2].children?.filter( (route) => route.data)
+
  }
