@@ -218,7 +218,7 @@
               "projects/authapp/src/assets"
             ],
             "styles": [
-              "projects/authapp/src/styles.css"
+              "projects/authapp/src/styles/styles-auth.css"
             ],
             "scripts": []
           },

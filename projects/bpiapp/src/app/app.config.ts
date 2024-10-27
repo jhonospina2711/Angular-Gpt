@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 //import { routes } from './app-routing.module';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers:
@@ -12,7 +13,8 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       HttpClientModule,
       HttpHeaders,
-      BrowserModule
+      BrowserModule,
+      CommonModule
     )
   ]
 };

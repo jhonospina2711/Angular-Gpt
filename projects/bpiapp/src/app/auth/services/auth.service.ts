@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { catchError, map, Observable, of, pipe, tap, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, of, pipe, tap, throwError } from 'rxjs';
 import { AuthStatus, CheckTokenResponse, LoginResponse, User } from '../interfaces';
 import { environment } from "@enviroments/environment";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -21,7 +21,7 @@ export class AuthService {
   public authStatus = computed(() => this._authStatus());
 
   constructor() {
-    //this.checkAuthStatus().subscribe();
+    this.checkAuthStatus().subscribe();
    }
 
   private setAuthentication(user: User, token: string): boolean {
@@ -39,8 +39,6 @@ export class AuthService {
     return this.http.post<LoginResponse>(url, body)
       .pipe(
         map(({ user, token }) => this.setAuthentication( user, token)),
-
-        //! Aqui atrapamos el error de login
         catchError(err => throwError(() => err.error.message)
 
         )
@@ -72,6 +70,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('url');
     this._currentUser.set(null);
     this._authStatus.set( AuthStatus.notAuthenticated);
   }

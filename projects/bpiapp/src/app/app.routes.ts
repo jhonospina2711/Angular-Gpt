@@ -16,10 +16,12 @@ export const routes: Routes = [
   },
   {
     path: 'bpiapp',
+    //canActivate: [ isAuthenticatedGuard ],
     component: DashboardLayoutComponent,
     children: [
       {
         path: 'getrequiarements',
+        canActivate: [ isAuthenticatedGuard ],
         loadComponent: () =>
           import(
             './presentation/pages/getRequiarementsPage/getRequiarementsPage.component'
@@ -32,6 +34,7 @@ export const routes: Routes = [
       },
       {
         path: 'setdecktests',
+        canActivate: [ isAuthenticatedGuard ],
         loadComponent: () =>
           import(
             './presentation/pages/setDeckTestsPage/setDeckTestsPage.component'

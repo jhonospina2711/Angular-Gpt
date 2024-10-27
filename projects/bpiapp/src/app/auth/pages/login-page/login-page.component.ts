@@ -14,6 +14,7 @@ export class LoginPageComponent {
     private fb            = inject( FormBuilder );
     private authService   = inject( AuthService);
     private router        = inject( Router);
+    private url           = '/bpiapp/getrequiarements';
 
     //! myForm permite validar la estructura del email y el password;
     public myForm: FormGroup = this.fb.group({
@@ -25,7 +26,10 @@ export class LoginPageComponent {
       const { email, password } = this.myForm.value;
       this.authService.login( email, password )
        .subscribe({
-        next: () => this.router.navigateByUrl('/bpiapp/getrequiarements'),
+        next: () => {
+          this.router.navigateByUrl(this.url)
+          localStorage.setItem('url', this.url);
+        },
         error: ( message ) => {
           Swal.fire('Error', message, 'error')
         }

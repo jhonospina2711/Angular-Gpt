@@ -5,7 +5,8 @@ import { AuthService } from '@auth-services/auth.service';
 
 export const isAuthenticatedGuard: CanActivateFn = (route, state) => {
 
-
+  console.log('isAuthenticatedGuard');
+  console.log({route, state});
 
   const authService = inject( AuthService)
   const router = inject( Router );

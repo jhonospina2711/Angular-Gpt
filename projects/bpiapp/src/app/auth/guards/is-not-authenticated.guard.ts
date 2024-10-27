@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthStatus } from '@auth-interfaces/auth-status.enum';
-import { AuthService } from '@auth-services/auth.service';
+import { AuthService } from '../services/auth.service';
+import { AuthStatus } from '../interfaces/auth-status.enum';
 
 export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
 
@@ -9,7 +9,7 @@ export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
   const router = inject( Router );
 
   if ( authService.authStatus() === AuthStatus.authenticated){
-    router.navigateByUrl('/dashboard')
+    router.navigateByUrl('/bpiapp/getrequiarements')
     return false;
   }
 

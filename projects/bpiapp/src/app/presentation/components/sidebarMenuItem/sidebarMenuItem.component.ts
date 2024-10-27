@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
   template: `
     <a
       [routerLink] = "path"
+      (click)="saveUrl(path)"
       routerLinkActive="bg-gray-800"
       class="flex justify-center items-center hover:bg-gray-800 rounded-md p-2 transition-colors"
     >
@@ -28,4 +29,8 @@ export class SidebarMenuItemComponent {
   @Input({ required: true }) title!: string;
   @Input({ required: true }) description!: string;
   @Input({ required: true }) path!: string;
+
+  saveUrl(url: string) {
+    localStorage.setItem('url', `/bpiapp/${url}`);
+  }
 }

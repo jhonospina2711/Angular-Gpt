@@ -16,7 +16,17 @@
         [path]="route.path!"
       />
     }
-    <!-- End Nav Links -->
+    <!-- Botón de cierre de sesión al final -->
+    <div class="ml-4 mt-auto">
+      <button
+        class="btn-primary"
+        type="submit"
+        (click)="onLogout()"
+      >
+        <span class="mr-2">Cerrar Sesión </span>
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
   </nav>
 
   <section class="mx-3 sm:mx-20 flex flex-col w-full h-[calc(100vh-50px)] bg-white bg-opacity-10 p-5 rounded-3xl">
