@@ -12,7 +12,7 @@
           <!-- Mensajes de respuesta de GPT con información de Casos de Prueba -->
           <app-gpt-message-get-deck-tests
             [Necesidad_Nro]="message.info?.Necesidad_Nro ?? 0"
-            [Casos_de_Prueba]="message.info?.Casos_de_Prueba || []" 
+            [Casos_de_Prueba]="message.info?.Casos_de_Prueba || []"
           ></app-gpt-message-get-deck-tests>
         </ng-container>
         <!-- Mensajes del usuario -->
@@ -34,5 +34,18 @@
    placeholder="Escribe aquí lo que deseas"
    (onMessage)="handleMessage($event)"
    />
+
+   <br>
+  <div class="ml-4 text-right">
+    <button
+      class="btn-primary"
+      type="submit"
+      (click)="exportToExcel()"
+      [disabled]="!hasDataExcel()"
+    >
+      <span class="mr-2">Exportar Excel </span>
+      <i class="fa-solid fa-file-export"></i>
+    </button>
+  </div>
 
 </div>

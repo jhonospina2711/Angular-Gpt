@@ -9,7 +9,7 @@ import { DeckTestResponse, RequierementResponse } from "@interfaces/index";
 export const deckTestUseCase = async ( prompt: string ) => {
 
   try {
-    console.log('PASO 1: ', prompt);
+    //console.log('PASO 1: ', prompt);
     const resp = await fetch(`${ environment.backendApi }/decktest`, {
       method: 'POST',
       headers: {
@@ -22,7 +22,7 @@ export const deckTestUseCase = async ( prompt: string ) => {
 
     const data = await resp.json() as DeckTestResponse
 
-    console.log('PASO 2: ', data);
+    //console.log('PASO 2: ', data);
 
     return {
       ok: true,
