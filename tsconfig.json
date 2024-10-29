@@ -1,39 +1,37 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",  // Base para resolver las rutas relativas
+    "outDir": "./dist/out-tsc",  // Directorio de salida de los archivos compilados
+    "strict": true,  // Activar modo estricto para mejorar el chequeo de errores
+    "skipLibCheck": true,  // Ignorar la verificación de bibliotecas para mejorar la velocidad de compilación
+    "esModuleInterop": true,  // Compatibilidad con módulos ES
+    "moduleResolution": "node",  // Resolución de módulos estilo Node.js
+    "target": "ES2022",  // Versión de ECMAScript de destino
+    "module": "ES2022",  // Módulo de salida
+    "lib": ["ES2022", "dom"],  // Bibliotecas que se incluyen en la compilación
     "paths": {
-      "@components/*":["app/presentation/components/*"],
-      "@use-cases/*":["app/core/use-cases/*"],
-      "@interfaces/*":["app/interfaces/*"],
-    },
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "declaration": false,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+      // Alias para `authapp`
+      "@auth-components/*": ["projects/authapp/src/app/auth/components/*"],
+      "@auth-guards/*": ["projects/authapp/src/app/auth/guards/*"],
+      "@auth-interfaces/*": ["projects/authapp/src/app/auth/interfaces/*"],
+      "@auth-services/*": ["projects/authapp/src/app/auth/services/*"],
+      "@auth-layouts/*": ["projects/authapp/src/app/dashboard/layouts/dashboard-layout/*"],
+      "@auth-pages/*": ["projects/authapp/src/app/dashboard/pages/*"],
+      "@auth-enviroments/*": ["projects/authapp/src/environments/*"],
+
+      // Alias para `bpiapp`
+      "@components/*": ["projects/bpiapp/src/app/presentation/components/*"],
+      "@interfaces/*": ["projects/bpiapp/src/app/interfaces/*"],
+      "@services/*": ["projects/bpiapp/src/app/presentation/services/*"],
+      "@use-cases/*": ["projects/bpiapp/src/app/core/use-cases/*"],
+      "@enviroments/*": ["projects/bpiapp/src/environments/*"],
+      "@layouts/*": ["projects/bpiapp/src/app/presentation/layouts/dashboardLayout/*"]
+    }
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": true,  // Estrictos chequeos de parámetros de inyección
+    "strictInputAccessModifiers": true,  // Requiere que los inputs tengan modificadores de acceso
+    "strictTemplates": true  // Estricta verificación de plantillas
   }
 }
