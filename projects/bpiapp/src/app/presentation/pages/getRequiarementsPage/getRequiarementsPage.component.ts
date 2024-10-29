@@ -27,6 +27,10 @@ export default class GetRequiarementsPageComponent {
   public isLoading = signal(false);
   public OpenAiService = inject(OpenAiService)
 
+  handleMessageWithFile( {prompt, file}: TextMessageEvent ) {
+    console.log({prompt, file});
+   }
+
     handleMessage( prompt: string ) {
     this.isLoading.set(true);
 
