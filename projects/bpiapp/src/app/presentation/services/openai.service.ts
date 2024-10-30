@@ -9,7 +9,7 @@ export class OpenAiService {
     return from (orthographyUseCase(prompt));
   }
 
-  checkRequierement( prompt: string ){
+  checkRequierement( prompt: string | null | undefined ){
     return from (requierementUseCase(prompt));
   }
 

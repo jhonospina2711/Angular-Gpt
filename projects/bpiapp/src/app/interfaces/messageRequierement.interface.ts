@@ -2,7 +2,7 @@
 
 
 export interface MessageRequierement {
-  text?: string;
+  text?: string | null | undefined;
   isGpt: boolean;
   info?: {
     Necesidad_Nro: number;

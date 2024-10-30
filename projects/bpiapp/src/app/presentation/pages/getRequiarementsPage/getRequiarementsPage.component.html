@@ -34,6 +34,7 @@
    <!-- MessageBox-file -->
    <app-text-message-box-file
    placeholder="Escribe aquí lo que deseas"
-   (onMessage)="handleMessageWithFile($event)"
+   (onMessage)="handleMessageWithFile($event.prompt, $event.file)"
    />
+
 </div>

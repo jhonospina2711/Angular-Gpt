@@ -4,26 +4,26 @@
       G
     </div>
     <div class="relative ml-3 text-sm bg-black bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl">
-      <h3 class="text-2xl">Necesidad_Nro: {{Necesidad_Nro}}</h3>
+      <h3 class="text-1xl"><strong>Necesidad_Nro: </strong>{{Necesidad_Nro}}</h3>
 
       <ng-container *ngIf="Casos_de_Prueba.length > 0">
-        <h3 class="text-2xl">Casos de prueba encontrados:</h3>
+        <h3 class="text-1xl"><strong>Casos de prueba encontrados:</strong></h3>
         <ul>
 
-          <li *ngFor="let prueba of Casos_de_Prueba">
+          <li *ngFor="let prueba of Casos_de_Prueba" class="mb-4">
             <h4 class="font-bold">
-              <h3 class="text-2xl"><strong>Prueba No: {{ prueba.IdPrueba || 'Null' }}</strong></h3>
-              <h3 class="text-2xl"><strong>Id Criterio Aceptación: {{ prueba.IdCriterioAceptacion || 'Null'}}</strong></h3>
+              <h3 class="text-1xl"><strong>Prueba No: </strong>{{ prueba.IdPrueba || 'Null' }}</h3>
+              <h3 class="text-1xl"><strong>Id Criterio Aceptación: </strong>{{ prueba.IdCriterioAceptacion || 'Null'}}</h3>
             </h4> <!-- Verificamos que la propiedad no sea vacía -->
-            <p><strong>Título Prueba:</strong> {{ prueba.Titulo_prueba || 'Sin título' }}</p>
-            <p><strong>Descripción:</strong> {{ prueba.Descripcion_caso_prueba || 'Sin descripción' }}</p>
-            <p><strong>Pre-requisitos:</strong> {{ prueba.Prerrequisitos || 'No especificados' }}</p>
-            <p><strong>Pasos de prueba:</strong></p>
+            <h4 class="text-1xl "><strong>Título Prueba:</strong> {{ prueba.Titulo_prueba || 'Sin título' }}</h4>
+            <h4 class="text-1xl "><strong>Descripción:</strong> {{ prueba.Descripcion_caso_prueba || 'Sin descripción' }}</h4>
+            <h4 class="text-1xl "><strong>Pre-requisitos:</strong> {{ prueba.Prerrequisitos || 'No especificados' }}</h4>
+            <h4 class="text-1xl "><strong>Pasos de prueba:</strong></h4>
             <ul>
               <!-- Dividimos la cadena de pasos por saltos de línea y luego iteramos sobre el arreglo -->
               <li *ngFor="let paso of prueba.Pasos_de_prueba.split('\n')">{{ paso }}</li>
             </ul>
-            <p><strong>Resultado esperado:</strong> {{ prueba.Resultado_esperado || 'No especificado' }}</p>
+            <h4 class="text-1xl "><strong>Resultado esperado:</strong> {{ prueba.Resultado_esperado || 'No especificado' }}</h4>
           </li>
         </ul>
       </ng-container>

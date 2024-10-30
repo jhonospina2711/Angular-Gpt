@@ -2,7 +2,7 @@ import { environment } from "@enviroments/environment";
 import { RequierementResponse } from "@interfaces/index";
 
 
-export const requierementUseCase = async ( prompt: string ) => {
+export const requierementUseCase = async ( prompt: string | null | undefined ) => {
 
   try {
 
