@@ -18,8 +18,8 @@ export class LoginPageComponent {
 
     //! myForm permite validar la estructura del email y el password;
     public myForm: FormGroup = this.fb.group({
-      email: ['jospina@corredores.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     login() {

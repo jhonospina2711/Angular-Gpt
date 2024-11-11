@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { catchError, delay, map, Observable, of, pipe, tap, throwError } from 'rxjs';
-import { AuthStatus, CheckTokenResponse, LoginResponse, User } from '../interfaces';
+import { AuthStatus, CheckTokenResponse, LoginResponse, RegisterResponse, User } from '../interfaces';
 import { environment } from "@enviroments/environment";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -42,6 +42,16 @@ export class AuthService {
         catchError(err => throwError(() => err.error.message)
 
         )
+      );
+  }
+
+  register(email: string, password: string, name: string): Observable<boolean> {
+    const url = `${this.baseUrl}/auth/register`;
+    const body = { email: email, password, name };
+    return this.http.post<RegisterResponse>(url, body)
+      .pipe(
+        map(({ user, token }) => true),
+        catchError(err => throwError(() => err.error.message))
       );
   }
 
