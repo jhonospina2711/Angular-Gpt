@@ -44,6 +44,32 @@ export const routes: Routes = [
           title: 'Deck de Pruebas',
           description: 'Generar el Deck de Pruebas',
         },
+      },
+      {
+        path: 'orthography',
+        canActivate: [ isAuthenticatedGuard ],
+        loadComponent: () =>
+          import(
+            './presentation/pages/orthographyPage/orthographyPage.component'
+          ),
+        data: {
+          icon: 'fa-solid fa-spell-check',
+          title: 'Ortografia',
+          description: 'Revisar ortografia de textos',
+        },
+      },
+      {
+        path: 'mefia-chat',
+        canActivate: [ isAuthenticatedGuard ],
+        loadComponent: () =>
+          import(
+            './presentation/pages/qaChatPage/qaChatPage.component'
+          ),
+        data: {
+          icon: 'fa-solid fa-comments',
+          title: 'mefia-chat',
+          description: 'Consultas sobre productos de inversión',
+        },
       }
     ],
   },
