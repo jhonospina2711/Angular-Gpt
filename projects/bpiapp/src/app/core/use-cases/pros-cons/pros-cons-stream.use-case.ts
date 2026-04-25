@@ -48,7 +48,4 @@ export async function* prosConsStreamUseCase( prompt: string, abortSignal: Abort
       return null;
     }
 
-
-
-
 }

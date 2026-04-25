@@ -29,6 +29,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
+/.angular
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -36,6 +37,30 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+id_rsa*
+
+# Local data, archives and logs
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.zip
+*.rar
+*.7z
 
 # System files
 .DS_Store
